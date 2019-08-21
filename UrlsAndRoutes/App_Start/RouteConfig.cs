@@ -11,7 +11,13 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.MapRoute("MyRoute", "{controller}/{action}");
+            routes.MapRoute("", "X{controller}/{action}");
+
+            routes.MapRoute("MyRoute", "{controller}/{action}",
+                new { controller = "Home", action = "Index" });
+
+            routes.MapRoute("", "Public/{controller}/{action}",
+                new { controller = "Home", action = "Index" });
         }
     }
 }
